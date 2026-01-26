@@ -31,16 +31,18 @@
 </head>
 <body>
     <input type="text" id="box" autocomplete="off">
-    <div id="output">65,000; 0; 3,000</div>
+    <div id="output"></div>
 
     <script>
         const box = document.getElementById("box");
         const output = document.getElementById("output");
+        const secretAnswer = "burnsville; 0; 974+this year=????";
 
         box.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
                 const value = box.value.trim().toLowerCase();
                 if (value === "please stop grope") {
+                    output.textContent = secretAnswer;
                     output.style.display = "block";
                 } else {
                     output.style.display = "none";
