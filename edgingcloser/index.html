@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            background: white;
+            margin: 0;
+            padding: 0;
+        }
+        input {
+            border: 1px solid #ccc;
+            padding: 6px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="box" autocomplete="off">
+
+    <script>
+        const box = document.getElementById("box");
+
+        box.addEventListener("input", () => {
+            if (box.value === "please stop grope") {
+                console.log("65,000; 0; 3,000");
+            }
+        });
+    </script>
+</body>
+</html>
