@@ -8,9 +8,11 @@
             margin: 0;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background: white;
+            gap: 12px;
         }
 
         input {
@@ -19,17 +21,30 @@
             border: 1px solid #ccc;
             outline: none;
         }
+
+        #output {
+            font-size: 16px;
+            color: black;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <input type="text" id="box" autocomplete="off">
+    <div id="output">65,000; 0; 3,000</div>
 
     <script>
         const box = document.getElementById("box");
+        const output = document.getElementById("output");
 
-        box.addEventListener("input", () => {
-            if (box.value === "please stop grope") {
-                console.log("65,000; 0; 3,000");
+        box.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                const value = box.value.trim().toLowerCase();
+                if (value === "please stop grope") {
+                    output.style.display = "block";
+                } else {
+                    output.style.display = "none";
+                }
             }
         });
     </script>
