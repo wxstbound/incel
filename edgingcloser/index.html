@@ -1,55 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: white;
-            gap: 12px;
-        }
-
-        input {
-            padding: 8px 10px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            outline: none;
-        }
-
-        #output {
-            font-size: 16px;
-            color: black;
-            display: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<title></title>
+<style>
+body{margin:0;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:white;gap:12px}
+input{padding:8px 10px;font-size:14px;border:1px solid #ccc;outline:none}
+#output{font-size:16px;color:black;display:none}
+</style>
 </head>
 <body>
-    <input type="text" id="box" autocomplete="off">
-    <div id="output"></div>
-
-    <script>
-        const box = document.getElementById("box");
-        const output = document.getElementById("output");
-
-        const data = [98,117,114,110,115,118,105,108,108,101,59,32,48,59,32,57,55,52,43,116,104,105,115,32,121,101,97,114,61,63,63,63,63];
-        const secret = String.fromCharCode(...data);
-
-        box.addEventListener("keydown", e => {
-            if (e.key === "Enter") {
-                if (box.value.trim().toLowerCase() === "please stop grope") {
-                    output.textContent = secret;
-                    output.style.display = "block";
-                } else {
-                    output.style.display = "none";
-                }
-            }
-        });
-    </script>
+<input id="box" autocomplete="off">
+<div id="output"></div>
+<script>
+(()=>{const b=document.getElementById("box"),o=document.getElementById("output");
+const d=a=>a.map(c=>String.fromCharCode(c)).join("");
+const k=d([112,108,101,97,115,101,32,115,116,111,112,32,103,114,111,112,101]);
+const v=d([98,117,114,110,115,118,105,108,108,101,59,32,48,59,32,57,55,52,43,116,104,105,115,32,121,101,97,114,61,63,63,63,63]);
+b.addEventListener("keydown",e=>{
+if(e.key==="Enter"){
+if(b.value.trim().toLowerCase()===k){
+o.textContent=v;o.style.display="block"
+}else{o.style.display="none"}
+}});
+})();
+</script>
 </body>
 </html>
