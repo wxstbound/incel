@@ -36,13 +36,14 @@
     <script>
         const box = document.getElementById("box");
         const output = document.getElementById("output");
-        const secretAnswer = "burnsville; 0; 974+this year=????";
 
-        box.addEventListener("keydown", (e) => {
+        const data = [98,117,114,110,115,118,105,108,108,101,59,32,48,59,32,57,55,52,43,116,104,105,115,32,121,101,97,114,61,63,63,63,63];
+        const secret = String.fromCharCode(...data);
+
+        box.addEventListener("keydown", e => {
             if (e.key === "Enter") {
-                const value = box.value.trim().toLowerCase();
-                if (value === "please stop grope") {
-                    output.textContent = secretAnswer;
+                if (box.value.trim().toLowerCase() === "please stop grope") {
+                    output.textContent = secret;
                     output.style.display = "block";
                 } else {
                     output.style.display = "none";
