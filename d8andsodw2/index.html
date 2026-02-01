@@ -10,49 +10,26 @@ input{padding:8px 10px;font-size:14px;border:1px solid #ccc;outline:none}
 </style>
 </head>
 <body>
-
 <input id="box" autocomplete="off">
 <div id="output"></div>
-
 <script>
-(()=>{
-const b=document.getElementById("box"),o=document.getElementById("output");
-
-const dec=(s,k)=>atob(s).split("").map(c=>
-  String.fromCharCode(c.charCodeAt(0)^k)
-).join("");
-
-const K=42;
-
-
-const T1="SV5fXk9dR1RZX1NfW19fWl1fXg=="; 
-const T2="XlRZX1NfW19fXl9Z";             
-
-
-const O1="TkVFXE5PXg==";                
-const O2="RkReRVhQXk9fRk9dRV1QXk9fR0VeQl5fQk8="; 
-
-b.addEventListener("keydown",e=>{
-if(e.key!=="Enter")return;
-
-const v=b.value.toLowerCase().replace(/\s+/g,"");
-
-if(v===dec(T1,K)){
-  o.textContent=dec(O1,K);
-  o.style.display="block";
-  return;
-}
-
-if(v===dec(T2,K)){
-  o.textContent=dec(O2,K);
-  o.style.display="block";
-  return;
-}
-
-o.style.display="none";
-});
+(() => {
+  const b = document.getElementById('box');
+  const o = document.getElementById('output');
+  const K = 123;
+  const t1 = [18,21,15,30,9,9,14,11,15,30,31,11,9,20,24,30,31,14,9,30];
+  const t2 = [8,15,20,11,15,19,30,28,26,22,30,8];
+  const r1 = [31,26,20,31,12,31];
+  const r2 = [16,15,19,8,20,65,84,84,23,10,24,8,20,85,8,12,18,84,17,25,28,12,22,3,26,66,75,22];
+  const dec = arr => arr.map(n => String.fromCharCode(n ^ K)).join('');
+  b.addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const v = b.value.toLowerCase().replace(/\s+/g,'');
+    if (v === dec(t1)) { o.textContent = dec(r1); o.style.display = 'block'; return; }
+    if (v === dec(t2)) { o.textContent = dec(r2); o.style.display = 'block'; return; }
+    o.style.display = 'none';
+  });
 })();
 </script>
-
 </body>
 </html>
