@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>place a note here and ping me with a picture</title>
+<title>baby steps</title>
 <style>
 body{margin:0;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:white;gap:12px}
 input{padding:8px 10px;font-size:14px;border:1px solid #ccc;outline:none}
@@ -18,22 +18,37 @@ input{padding:8px 10px;font-size:14px;border:1px solid #ccc;outline:none}
 (()=>{
 const b=document.getElementById("box"),o=document.getElementById("output");
 
-const d=(s,k)=>atob(s).split("").map(c=>
+const dec=(s,k)=>atob(s).split("").map(c=>
   String.fromCharCode(c.charCodeAt(0)^k)
 ).join("");
 
-const t1="Jx0WEx4aGx4dGg0TEx0eHRA=";
-const r1="Jw0ZBg4JHgkNBg0Y";
-const t2="Jw0ZGQkGHR0XGx0b";
-const r2="PQoYHh1eUV8aHR1eTQwZHQsbHh0YFR0bHwo=";
+const K=42;
 
-const k1=73,k2=91;
+/* encrypted triggers */
+const T1="SV5fXk9dR1RZX1NfW19fWl1fXg=="; // interruptedprocedure
+const T2="XlRZX1NfW19fXl9Z";             // stopthegames
+
+/* encrypted outputs */
+const O1="TkVFXE5PXg==";                 // daodwd
+const O2="RkReRVhQXk9fRk9dRV1QXk9fR0VeQl5fQk8="; // kthso://lqcso.swi/jbgwmxa90m
 
 b.addEventListener("keydown",e=>{
 if(e.key!=="Enter")return;
+
 const v=b.value.toLowerCase().replace(/\s+/g,"");
-if(v===d(t1,k1)){o.textContent=d(r1,k2);o.style.display="block";return;}
-if(v===d(t2,k1)){o.textContent=d(r2,k2);o.style.display="block";return;}
+
+if(v===dec(T1,K)){
+  o.textContent=dec(O1,K);
+  o.style.display="block";
+  return;
+}
+
+if(v===dec(T2,K)){
+  o.textContent=dec(O2,K);
+  o.style.display="block";
+  return;
+}
+
 o.style.display="none";
 });
 })();
